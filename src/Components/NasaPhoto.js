@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import styled from 'styled-components'
 
 // const dummy = {
 //     date: "2022-07-20",
@@ -8,18 +8,58 @@ import React from 'react';
 //     hdurl: "https://apod.nasa.gov/apod/image/2207/JupiterRing_WebbSchmidt_2429.jpg",
 //     title: "Jupiter and Ring in Infrared from Webb"
  
-//  }   
+//  } 
+const NasaStyles = styled.div`
 
+height: 100vh;
+margin: 0;
+padding: 0;
+background-color: #708c64;
+border-bottom: 2px solid black;
+
+` 
+const NasaImg = styled.img`
+margin-top: 0;
+width: 350px;
+height: 350px;
+display: flex;
+box-shadow: 0 6px 20px rgb(0 0 0 / 0.2);
+`
+const ImagParagraph = styled.div`
+padding-top: 40px;
+ display: flex;
+ justify-content: space-evenly;
+ 
+`
+const Paragraph = styled.p`
+margin-top: 0;
+padding: 40px;
+width: 40%;
+box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+`
+const Header = styled.h1`
+text-align: center;
+margin: 0;
+padding-top: 30px;
+`
+
+const Date = styled.h6`
+text-align: center;
+font-size: 20px;
+`
 
 const NasaPhoto = (props) => {
  
     return(
-        <div className="nasa-photo">
-          <h1>{props.photo.title}</h1>
-          <h6>{props.photo.date}</h6>
-          <img src={props.photo.hdurl} alt={'nasa'}/>
-          <p>{props.photo.explanation}</p>
-        </div>
+        <NasaStyles className="nasa-photo">
+         
+            <Header>{props.photo.title}</Header>
+            <Date>{props.photo.date}</Date>
+        <ImagParagraph>
+            <NasaImg src={props.photo.hdurl} alt={'nasa'}/>
+            <Paragraph>{props.photo.explanation}</Paragraph>
+        </ImagParagraph> 
+        </NasaStyles>
     )
 }
 
